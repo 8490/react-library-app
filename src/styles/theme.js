@@ -1,7 +1,7 @@
 //create theme
 
 export const theme = {
-  ccolors: {
+  colors: {
     navbarBgColor: "white",
     mainColor: "#86C8BC",
     logoColor: "darkslategray",
