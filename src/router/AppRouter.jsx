@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "../components/footer/Footer";
 import Navbar from "../components/navbar/Navbar";
@@ -11,13 +11,17 @@ import { GlobalStyles } from "../styles/Global.styles";
 import PrivateRouter from "./PrivateRouter";
 
 const AppRouter = () => {
+  const [currentUser, setCurrentUser] = useState(false);
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar currentUser={currentUser} setCurrentUser={setCurrentUser} />
       <GlobalStyles />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={<Login setCurrentUser={setCurrentUser} />}
+        />
         <Route path="/register" element={<Register />} />
         {/* <Route path="/about" element={<PrivateRouter />}>
           <Route path="" element={<About />} />
