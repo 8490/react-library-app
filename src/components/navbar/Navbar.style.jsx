@@ -17,16 +17,34 @@ export const Logo = styled(NavLink)`
 
 export const Menu = styled(Flex)`
   font-weight: bold;
+
+  @media (max-width: ${({ theme }) => theme.screens.lg}) {
+    flex-direction: column;
+    width: 100%;
+    transition: all 0.3s ease-in;
+    overflow: hidden;
+    max-height: ${({ showMenu }) => (showMenu ? "300px" : "0")};
+  }
 `;
 
 export const MenuLink = styled(NavLink)`
   text-align: center;
   padding: 1rem 2rem;
+  /* border-bottom: 5px solid; */
   cursor: pointer;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.linkColor};
   transition: all 0.3s ease-in;
   :hover {
     color: ${({ theme }) => theme.colors.linkHoverColor};
+  }
+`;
+
+export const HamburgerIcon = styled.div`
+  display: none;
+  cursor: pointer;
+
+  @media (max-width: ${({ theme }) => theme.screens.lg}) {
+    display: block;
   }
 `;
