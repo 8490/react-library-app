@@ -11,7 +11,9 @@ import { GlobalStyles } from "../styles/Global.styles";
 import PrivateRouter from "./PrivateRouter";
 
 const AppRouter = () => {
-  const [currentUser, setCurrentUser] = useState(false);
+  const [currentUser, setCurrentUser] = useState(
+    sessionStorage.getItem("user") || false
+  );
   return (
     <BrowserRouter>
       <Navbar currentUser={currentUser} setCurrentUser={setCurrentUser} />
