@@ -8,6 +8,10 @@ export const HeaderTitle = styled.h2`
   margin-top: 1rem;
   font-size: 3rem;
   color: ${({ theme }) => theme.colors.detailColor};
+
+  @media (max-width: ${({ theme }) => theme.screens.lg}) {
+    font-size: 2rem;
+  }
 `;
 
 export const HeaderForm = styled.form`
