@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Footer from "../components/footer/Footer";
 import Navbar from "../components/navbar/Navbar";
-import About from "../pages/about/About";
-import Detail from "../pages/detail/Detail";
+import { GlobalStyles } from "../styles/Global.styles";
+import Footer from "../components/footer/Footer";
 import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
-import { GlobalStyles } from "../styles/Global.styles";
 import PrivateRouter from "./PrivateRouter";
+import Detail from "../pages/detail/Detail";
+import About from "../pages/about/About";
 
-const AppRouter = () => {
+const AppRouter = ({ myTheme, setMyTheme }) => {
   const [currentUser, setCurrentUser] = useState(
-    sessionStorage.getItem("user") || false
+    sessionStorage.getItem("user")
   );
   return (
     <BrowserRouter>
@@ -37,7 +37,8 @@ const AppRouter = () => {
           <Route path="/detail/:id" element={<Detail />} />
         </Route>
       </Routes>
-      <Footer />
+      <Footer myTheme={myTheme} setMyTheme={setMyTheme} />
+      {/* statelerimizi footer a yolladık */}
     </BrowserRouter>
   );
 };
