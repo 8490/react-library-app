@@ -35,7 +35,7 @@ const Home = () => {
           <img src={homeImg} alt="home-img" />
         </HomeImg>
       ) : (
-        <MainContainer>
+        <MainContainer wrap="wrap">
           {myData.map((item) => (
             <Card key={item.id} item={item} />
           ))}

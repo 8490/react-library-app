@@ -1,7 +1,17 @@
 import React from "react";
-
-const Card = () => {
-  return <div>Card </div>;
+import { CardButton, CardContainer, CardHeader, CardImg } from "./Card.style";
+import defaultImg from "../../assets/book.jpg";
+const Card = ({ item }) => {
+  return (
+    <CardContainer>
+      <CardHeader>{item.volumeInfo.title}</CardHeader>
+      <CardImg
+        src={item.volumeInfo.imageLinks?.smallThumbnail || defaultImg}
+        alt="book-image"
+      />
+      <CardButton>View More</CardButton>
+    </CardContainer>
+  );
 };
 
 export default Card;
