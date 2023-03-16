@@ -1,7 +1,10 @@
 import React from "react";
 import { CardButton, CardContainer, CardHeader, CardImg } from "./Card.style";
 import defaultImg from "../../assets/book.jpg";
+import { useNavigate } from "react-router-dom";
+
 const Card = ({ item }) => {
+  const navigate = useNavigate();
   return (
     <CardContainer>
       <CardHeader>{item.volumeInfo.title}</CardHeader>
@@ -9,7 +12,11 @@ const Card = ({ item }) => {
         src={item.volumeInfo.imageLinks?.smallThumbnail || defaultImg}
         alt="book-image"
       />
-      <CardButton>View More</CardButton>
+      <CardButton
+        onClick={() => navigate(`/detail/${item.id}`, { state: item })}
+      >
+        View More
+      </CardButton>
     </CardContainer>
   );
 };
